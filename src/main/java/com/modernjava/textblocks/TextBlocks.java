@@ -1,30 +1,34 @@
 package com.modernjava.textblocks;
 
-import java.util.Arrays;
-
 public class TextBlocks {
 
+    public static String multiLineString() {
 
-    public static  String multiLineString(){
+        var multiLine = "This is a\n" +
+                "    multiline string\n" +
+                "with newlines inside";
 
-        return  "This is ia multiline\n" +
-                "String";
+        return  multiLine;
     }
 
-    public static String multiLineStringV2(){
 
-        return  """
-                This is a multiLine 
-                String
-                """;
+    public static String json() {
+
+        return """
+                {
+                	"order_id": 123456,
+                	"status": "DELIVERED",
+                	"final_charge": 999.99,
+                	"order_line_items": [{
+                		"item_name": "iphone 14",
+                		"quantity": 1
+                	}]
+                }
+                """
+                ;
     }
 
     public static void main(String[] args) {
 
-        System.out.println("multiLineString = " + multiLineString());
-        System.out.println("multiLineStringV2 = " + multiLineStringV2());
-
     }
-
-
 }
