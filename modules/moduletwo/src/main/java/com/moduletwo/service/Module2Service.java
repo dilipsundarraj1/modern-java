@@ -4,7 +4,7 @@ import com.moduletwo.dtos.Module2DTO;
 
 public class Module2Service {
 
-    public Module2DTO retrieveModule2(){
+    public Module2DTO retrieveData(){
         return new Module2DTO("Hello! This is from Module2");
     }
 }
