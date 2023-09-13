@@ -20,7 +20,6 @@ subprojects {
         targetCompatibility = JavaVersion.VERSION_20
     }
 
-
     tasks.withType<JavaCompile> {
         val compilerArgs = options.compilerArgs
         compilerArgs.add("--enable-preview")
