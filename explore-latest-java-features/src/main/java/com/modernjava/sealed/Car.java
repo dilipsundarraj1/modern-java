@@ -1,5 +1,6 @@
 package com.modernjava.sealed;
 
-public class Car extends Vehicle {
+public non-sealed class Car extends Vehicle { }
 
-}
+//public sealed class Car extends Vehicle permits FlyingCar { }
+

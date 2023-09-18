@@ -1,5 +1,5 @@
 package com.modernjava.sealed;
 
-public class Vehicle {
+public sealed class Vehicle permits Car, Truck{
 }
 
