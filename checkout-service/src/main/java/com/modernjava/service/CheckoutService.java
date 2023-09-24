@@ -1,13 +1,11 @@
 package com.modernjava.service;
 
 import com.modernjava.domain.*;
-import com.modernjava.payment.CreditCardPayment;
-import com.modernjava.payment.DebitCardPayment;
-import com.modernjava.payment.RewardsCard;
+import com.modernjava.payment.PaymentService;
 
 public class CheckoutService {
 
-    private final PaymentService  paymentService;
+    private final PaymentService paymentService;
 
     public CheckoutService(PaymentService paymentService) {
         this.paymentService = paymentService;

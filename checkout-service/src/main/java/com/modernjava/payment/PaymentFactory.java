@@ -8,8 +8,7 @@ public class PaymentFactory {
         return switch (cardType) {
             case DEBIT -> new DebitCardPayment();
             case CREDIT -> new CreditCardPayment();
-            case REWARDS -> new RewardsCard();
-            //default -> throw new IllegalArgumentException("Card Type not allowed");
+            case REWARDS -> new RewardsCardPayment();
         };
     }
 }
