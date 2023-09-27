@@ -1,4 +1,4 @@
-package com.modernjava.emhamncedswitch;
+package com.modernjava.enhancedswitch;
 
 import java.time.Month;
 import java.time.Year;
