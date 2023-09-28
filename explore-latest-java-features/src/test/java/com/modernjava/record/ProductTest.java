@@ -24,6 +24,8 @@ class ProductTest {
          */
     }
 
+
+
     @Test
     void createProduct_customConstructor() {
 
@@ -36,7 +38,6 @@ class ProductTest {
 
     @Test
     void createProduct_error() {
-
 
         var exception = assertThrows(IllegalArgumentException.class,
                 ()-> new Product("IPhone", new BigDecimal("-999.99"),
@@ -57,5 +58,21 @@ class ProductTest {
         assertEquals("name value is not valid!", exception.getMessage());
     }
 
+    @Test
+    void createProductComparison() {
+
+        var product = new Product("IPhone",
+                new BigDecimal("999.99"),
+                //new BigDecimal("1999.99"),
+                "ELECTRONICS");
+
+        var product1 = new Product("IPhone", new BigDecimal("999.99"),
+                "ELECTRONICS");
+        assertEquals(product1, product);
+        System.out.println("product = " + product);
+        assertEquals("IPhone", product.name());
+        assertEquals("ELECTRONICS", product.type());
+
+    }
 
 }

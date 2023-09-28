@@ -1,6 +1,7 @@
 package com.modernjava.record;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public record Product(String name,
                       BigDecimal cost,
@@ -16,6 +17,18 @@ public record Product(String name,
         if (cost.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("cost value is not valid!");
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product product)) return false;
+        return Objects.equals(name, product.name) && Objects.equals(cost, product.cost) && Objects.equals(type, product.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, cost, type);
     }
 
     public Product(String name, BigDecimal cost) {
