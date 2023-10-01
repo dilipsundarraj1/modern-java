@@ -37,6 +37,20 @@ class DaysInMonthTest {
 
     @ParameterizedTest
     @MethodSource("input")
+    void getDaysV2(Month month, int expectedNoOfDays) {
+        int days = DaysInMonth.getDays(month, 2023);
+        assertEquals(expectedNoOfDays, days);
+    }
+
+    @ParameterizedTest
+    @MethodSource("input")
+    void getDaysV3(Month month, int expectedNoOfDays) {
+        int days = DaysInMonth.getDays(month, 2023);
+        assertEquals(expectedNoOfDays, days);
+    }
+
+    @ParameterizedTest
+    @MethodSource("input")
     void getDays(Month month, int expectedNoOfDays) {
         int days = DaysInMonth.getDays(month, 2023);
         assertEquals(expectedNoOfDays, days);
