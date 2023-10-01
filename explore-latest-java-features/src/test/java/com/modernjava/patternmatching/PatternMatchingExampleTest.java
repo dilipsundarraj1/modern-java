@@ -14,6 +14,14 @@ class PatternMatchingExampleTest {
      PatternMatchingExample patternMatchingExample
              = new PatternMatchingExample();
 
+    @ParameterizedTest
+    @MethodSource("input")
+    void pattern(Object value, String expectedResult) {
+
+        var output =  patternMatchingExample.pattern(value);
+        assertEquals(expectedResult, output);
+    }
+
     private static Stream<Arguments> input() {
         return Stream.of(
                 Arguments.of("Dilip", "String of length:5"),
