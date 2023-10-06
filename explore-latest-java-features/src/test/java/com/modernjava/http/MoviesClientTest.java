@@ -6,19 +6,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-//@Disabled
+@Disabled
 public class MoviesClientTest {
 
     MoviesClient moviesClient = new MoviesClient();
-
-    @Test
-    void getAllMovies() {
-        var movieResponse = moviesClient.getAllMovies();
-        assertEquals(200, movieResponse.statusCode());
-        assertNotNull(movieResponse.body());
-
-    }
-
 
     @Test
     void getAllMoviesV2() {

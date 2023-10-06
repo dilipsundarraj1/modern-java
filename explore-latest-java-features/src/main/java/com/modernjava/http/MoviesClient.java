@@ -30,19 +30,47 @@ public class MoviesClient {
             .registerModule(new JavaTimeModule())
             .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
-    public HttpResponse<String> getAllMovies() {
+
+
+    public Movie getMovieById() {
 
         try {
 
-            var request = requestBuilder(ALL_MOVIES_URL);
+            var request = requestBuilder(MOVIE_BY_ID_URL);
             HttpResponse<String> response =
                     client.send(request, HttpResponse.BodyHandlers.ofString());
 
             System.out.println("Status code: " + response.statusCode());
             System.out.println("Headers: " + response.headers());
-            System.out.println("Body: " + response.body());
-            return response;
+
+
+            return objectMapper.readValue(response.body(), Movie.class);
         } catch (IOException | InterruptedException e) {
+            System.err.println(e);
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public CompletableFuture<Movie> getMovieByIdAsync() {
+
+        try {
+
+            var request = requestBuilder(MOVIE_BY_ID_URL);
+            var response =
+                    client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+
+            return response
+                    .thenApply(httpResponse -> {
+                        System.out.println("Status code: " + httpResponse.statusCode());
+                        System.out.println("Headers: " + httpResponse.headers());
+                        try {
+                            return objectMapper.readValue(httpResponse.body(),Movie.class);
+                        } catch (JsonProcessingException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+        } catch (Exception e) {
             System.err.println(e);
             throw new RuntimeException(e);
         }
@@ -88,51 +116,6 @@ public class MoviesClient {
                         }
                     });
 
-        } catch (Exception e) {
-            System.err.println(e);
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    public Movie getMovieById() {
-
-        try {
-
-            var request = requestBuilder(MOVIE_BY_ID_URL);
-            HttpResponse<String> response =
-                    client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            System.out.println("Status code: " + response.statusCode());
-            System.out.println("Headers: " + response.headers());
-
-
-            return objectMapper.readValue(response.body(), Movie.class);
-        } catch (IOException | InterruptedException e) {
-            System.err.println(e);
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    public CompletableFuture<Movie> getMovieByIdAsync() {
-
-        try {
-
-            var request = requestBuilder(MOVIE_BY_ID_URL);
-            var response =
-                    client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
-
-            return response
-                    .thenApply(httpResponse -> {
-                        System.out.println("Status code: " + httpResponse.statusCode());
-                        System.out.println("Headers: " + httpResponse.headers());
-                        try {
-                            return objectMapper.readValue(httpResponse.body(),Movie.class);
-                        } catch (JsonProcessingException e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
         } catch (Exception e) {
             System.err.println(e);
             throw new RuntimeException(e);
