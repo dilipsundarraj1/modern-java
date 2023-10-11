@@ -2,17 +2,24 @@
 
 This repo has the code for modern java.
 
-## Index 
+## Index
+
+[Java Installation using Installer](#java-installation-using-installer)
+
 [Java Installation using sdkman](#install-java-using-sdk-man)
 
-[Manual Java Installation](#install-java-using-sdk-man)
+## Java Installation using Installer
+
+- Download the latest java from the below link
+  - [Java 20](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html)
+  - [Java 21](https://www.oracle.com/java/technologies/downloads/)
 
 ## Install the Latest Version of JAVA using SDK man
 
 ### Install sdkMan
 
 - Follow the instructions in the below link to install sdkman in your mac.
-    - [sdkMan](https://sdkman.io/install)
+  - [sdkMan](https://sdkman.io/install)
 
 ### Install Java using sdk man
 
@@ -22,16 +29,17 @@ sdk list java
 ```
 #### How to install a specific Java Version ?
 
-- For example, to install **Java 21** run the below command.
+- For example, to install **Java 20** run the below command.
 
 ```linux
-sdk list java | grep '21'
+sdk list java | grep '20'
 ```
-- Running the below command will install Java 21.
+- Running the below command will install Java 20.
+
 ```linux
-sdk install java 21-oracle
+sdk install java 20.0.2-tem
 ```
- 
+
 
 ## Java Modules
 
