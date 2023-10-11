@@ -2,7 +2,7 @@
 
 This repo has the code for modern java.
 
-## Index
+## Table of Contents
 
 [Java Installation using Installer](#java-installation-using-installer)
 
@@ -39,18 +39,3 @@ sdk list java | grep '20'
 ```linux
 sdk install java 20.0.2-tem
 ```
-
-
-## Java Modules
-
-- List all the modules in the java platform.
-
-```java
-java --list-modules | wc -l
-```
-
-### modules project
-
-- Here is the project Structure:
-
-![Modules](images/modules-1.png)
