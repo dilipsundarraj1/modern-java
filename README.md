@@ -29,7 +29,7 @@ sdk list java
 ```
 #### How to install a specific Java Version ?
 
-- For example, to install **Java 20** run the below command.
+##### Java 20
 
 ```linux
 sdk list java | grep '20'
@@ -38,4 +38,15 @@ sdk list java | grep '20'
 
 ```linux
 sdk install java 20.0.2-tem
+```
+
+##### Java 21
+
+```linux
+sdk list java | grep '21'
+```
+- Running the below command will install Java 20.
+
+```linux
+sdk install java 21-oracle
 ```
